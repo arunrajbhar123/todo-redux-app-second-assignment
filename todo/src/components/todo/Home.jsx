@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Input from "./Input";
+
 
 import { useSelector, useDispatch ,shallowEqual} from "react-redux";
 import {
@@ -15,6 +15,10 @@ import {
 import axios from "axios";
 import Todo from "./Todo";
 import { Link } from "react-router-dom";
+import Input from "./Input.jsx";
+
+
+
 
 const Home = () => {
   const { todos, isLoading, isError } = useSelector((state) => state.reducer.data,shallowEqual);
@@ -81,6 +85,7 @@ const Home = () => {
       
    Home
       <Input onClick={handlePostData} />
+
       {todos &&
         todos.map((el, id) => (
           <div key={id} style={{lineHeight:"2"}}>

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Total = () => {
-  const { todos } = useSelector((state) => state.data);
+  const { todos } = useSelector((state) => state.reducer.data);
   let inComplete = 0;
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].status) {
@@ -23,16 +23,12 @@ const Total = () => {
       {todos &&
         todos.map((el, id) => (
           <div key={id}>
-            {el.status ? <h1>Not Exist</h1> : (
-              <h4>
-                {" "}
-                <br />
-                <p>
-                  {" "}
-                  {id}. Title : {el.title} Status : {`${el.status}`}
-                </p>
-              </h4>
-            )}
+            <h4>
+              <br />
+              <p>
+                {id}. Title : {el.title} Status : {`${el.status}`}
+              </p>
+            </h4>
           </div>
         ))}
     </div>
